@@ -35,7 +35,6 @@ public class Staff3 {
 				System.out.println("");
 				System.out.println("Staff:" + e.getAttribute("id"));
 				System.out.println("Name: " + e.getElementsByTagName("firstname").item(0).getTextContent());
-                System.out.println("Salary: " + e.getElementsByTagName("salary").item(0).getTextContent());
                 System.out.println("Nickname: " + e.getElementsByTagName("nickname").item(0).getTextContent());
                 System.out.println("salary: " + e.getElementsByTagName("salary").item(0).getTextContent());
                 Element e1 =  (Element) e.getElementsByTagName("salary").item(0);
