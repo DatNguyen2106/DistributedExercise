@@ -16,7 +16,8 @@ import org.w3c.dom.Element;
 public class example {
     public static void main(String[] args) {
         try {
-    		Book book = new Book("java program", "MIT", "john", 30);
+        	Author author = new Author("John",30);
+    		Book book = new Book("java program", "MIT", author);
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -24,7 +25,6 @@ public class example {
 
             Element rootElement = doc.createElement("books");
 
-            // create sub element
             Element book1 = doc.createElement("book");
 
             // title
@@ -38,23 +38,21 @@ public class example {
             book1.appendChild(publisher);
 
             // create author
-            Element author = (doc.createElement("author"));
+            Element author1 = (doc.createElement("author"));
             // create child element in author
             Element name = doc.createElement("name");
-            name.appendChild(doc.createTextNode(book.getName()+""));
+            name.appendChild(doc.createTextNode(book.getAuthor().getName()+""));
 
             Element age = doc.createElement("age");
-            age.appendChild(doc.createTextNode(book.getAge()+""));
+            age.appendChild(doc.createTextNode(book.getAuthor().getAge()+""));
 
             // append to author
-            author.appendChild(name);
-            author.appendChild(age);
+            author1.appendChild(name);
+            author1.appendChild(age);
 
-            book1.appendChild(author);
+            book1.appendChild(author1);
 
-            // add to root
             rootElement.appendChild(book1);
-            // add to doc
             doc.appendChild(rootElement);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -65,7 +63,6 @@ public class example {
             transformer.transform(source, consolResult);
         
             
-            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }

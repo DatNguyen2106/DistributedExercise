@@ -18,14 +18,15 @@ public class Book {
 	private String publisher;
 	private String name;
 	private int age;
+	Author author;
+
 	public Book() {
 	}
 
-	public Book(String title, String publisher, String name, int age) {
+	public Book(String title, String publisher, Author author) {
 		this.title = title;
 		this.publisher = publisher;
-		this.name = name;
-		this.age = age;
+		this.author = author;
 	}
 	
 	public String getTitle() {
@@ -61,6 +62,13 @@ public class Book {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public Author getAuthor() {
+		return author;		
+	}
+	public void setAuthor(String name, int age) {
+		this.age = age;
+		this.name = name;
 	}
 
 	@Override
